@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta http-equiv="content-type"
+    content="text/html; charset=UTF-8">
+<title><%= title %></title>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <head>
+        <h1><%= title %></h1>
+    </head>
+    <div role="main">
+        <p><%- content %></p>
+        <% if(mydata != null){ %>
+            <p><ul>
+                <li><%- mydata.id %></li>
+                <li><%- mydata.attributes.name %></li>
+                <li><%- mydata.attributes.mail %></li>
+                <li><%- mydata.attributes.age + ' old' %></li>
+            </ul></p>
+        <% } %>
+        <form method="post" action="/hello/find">
+        <table>
+            <tr>
+                <th>NAME</th>
+                <td><input type="text" name="fstr" value="<%= form.fstr %>"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="検索"></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+</body>
+
+</html>
